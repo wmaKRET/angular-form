@@ -13,5 +13,8 @@
         <app-add-edit-page
             *ngIf="activeSectionId !== 1 && activeSectionId !== 9"
         ></app-add-edit-page>
+        <app-add-edit-summary
+            *ngIf="activeSectionId === 9"
+        ></app-add-edit-summary>
     </form>
 </div>
