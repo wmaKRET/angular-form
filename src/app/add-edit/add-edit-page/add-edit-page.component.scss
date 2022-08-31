@@ -1,0 +1,14 @@
+.generic-section {
+  min-height: 100%;
+  background-color: #eff1f3;
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    flex: 1;
+  }
+}

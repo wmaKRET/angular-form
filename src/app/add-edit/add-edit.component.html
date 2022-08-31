@@ -10,5 +10,8 @@
             [promotionForm]="promotionForm"
             (enableOtherSectionsEvent)="enableOtherSections($event)"
         ></app-add-edit-definition>
+        <app-add-edit-page
+            *ngIf="activeSectionId !== 1 && activeSectionId !== 9"
+        ></app-add-edit-page>
     </form>
 </div>
