@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 import { FormSection } from '../models/formSection';
 import { FormService } from '../services/form.service';
+import { LocalService } from '../services/local.service';
 
 @Component({
   selector: 'app-add-edit',
@@ -10,7 +11,11 @@ import { FormService } from '../services/form.service';
   styleUrls: ['./add-edit.component.scss'],
 })
 export class AddEditComponent implements OnInit {
-  constructor(public formService: FormService) {}
+  constructor(
+    private formService: FormService,
+    private localStore: LocalService
+  ) {}
+
   formSectionsArray!: FormSection[];
   activeSectionId!: number;
   promotionForm!: FormGroup;
@@ -19,6 +24,7 @@ export class AddEditComponent implements OnInit {
     this.getFormSections();
     this.getFirstActiveSectionId();
     this.createNewForm();
+    this.populateFormWithValues();
   }
 
   getFormSections(): void {
@@ -33,6 +39,13 @@ export class AddEditComponent implements OnInit {
 
   createNewForm(): void {
     this.promotionForm = this.formService.createForm();
+  }
+
+  populateFormWithValues(): void {
+    const savedFormValues = this.localStore.getData('wmakret-promotion-form');
+    // if some values are saved in local storage then set form values
+    if (savedFormValues)
+      this.promotionForm.setValue(JSON.parse(savedFormValues));
   }
 
   changeActiveSection(id: number): void {
@@ -52,5 +65,13 @@ export class AddEditComponent implements OnInit {
         section.id === 1 ? section : { ...section, isDisabled: true }
       );
     }
+  }
+
+  handleFormChange(): void {
+    const formValues = this.promotionForm.value;
+    this.localStore.saveData(
+      'wmakret-promotion-form',
+      JSON.stringify(formValues)
+    );
   }
 }
