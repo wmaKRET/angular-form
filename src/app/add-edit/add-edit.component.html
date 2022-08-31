@@ -3,7 +3,12 @@
         [formSectionsArray]="formSectionsArray"
         [activeSectionId]="activeSectionId"
         (changeActiveSectionEvent)="changeActiveSection($event)"
-    >
-    </app-add-edit-menu>
-    <h1>form goes here</h1>
+    ></app-add-edit-menu>
+    <form [formGroup]="promotionForm">
+        <app-add-edit-definition
+            *ngIf="activeSectionId === 1"
+            [promotionForm]="promotionForm"
+            (enableOtherSectionsEvent)="enableOtherSections($event)"
+        ></app-add-edit-definition>
+    </form>
 </div>

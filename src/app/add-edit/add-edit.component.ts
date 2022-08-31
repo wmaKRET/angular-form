@@ -40,4 +40,17 @@ export class AddEditComponent implements OnInit {
     // if section is not disabled (isDisabled is false) then update active section id
     if (!section?.isDisabled) this.activeSectionId = id;
   }
+
+  enableOtherSections(isNameFilled: boolean): void {
+    const isSecondSectionDisabled = this.formSectionsArray[1].isDisabled;
+    if (isSecondSectionDisabled && isNameFilled) {
+      this.formSectionsArray = this.formSectionsArray.map((section) =>
+        section.id === 1 ? section : { ...section, isDisabled: false }
+      );
+    } else if (!isSecondSectionDisabled && !isNameFilled) {
+      this.formSectionsArray = this.formSectionsArray.map((section) =>
+        section.id === 1 ? section : { ...section, isDisabled: true }
+      );
+    }
+  }
 }

@@ -1,0 +1,102 @@
+<section class="definition" [formGroup]="promotionForm">
+    <section class="section" formGroupName="description">
+        <div class="section__header">
+            <h4>Description</h4>
+            <p class="required"><span>*</span> is required</p>
+        </div>
+        <hr>
+        <div class="input-container">
+            <p class="input-container-mark">*</p>
+            <input 
+                type="text" 
+                formControlName="marketingName"
+                placeholder="Marketing name"
+                (input)="enableOtherSections()"
+            >
+        </div>
+        
+        <input 
+            type="text" 
+            formControlName="technicalName"
+            placeholder="Technical name"
+            (input)="enableOtherSections()"
+        >
+        <textarea 
+            formControlName="description"
+            placeholder="Description"
+        ></textarea>
+        <p>Catalog promotion tutorial:</p>
+        <hr>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, placeat sit cumque laboriosam minus incidunt maxime adipisci aut aliquid, perspiciatis assumenda iusto minima tempora sequi. Labore ex nisi fugit ratione.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, placeat sit cumque laboriosam minus incidunt maxime adipisci aut aliquid, perspiciatis assumenda iusto minima tempora sequi. Labore ex nisi fugit ratione.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, placeat sit cumque laboriosam minus incidunt maxime adipisci aut aliquid, perspiciatis assumenda iusto minima tempora sequi. Labore ex nisi fugit ratione.</p>
+    </section>
+    <span class="gówno"></span>
+    <section class="section" formGroupName="conditions">
+        <div class="section__header">
+            <h4>Conditions</h4>
+            <p class="required"><span>*</span> is required</p>
+        </div>
+        <hr>
+        <select formControlName="portal">
+            <option value="">Portal</option>
+            <option value="Portal 1">Portal 1</option>
+            <option value="Portal 2">Portal 2</option>
+            <option value="Portal 3">Portal 3</option>
+        </select>
+        <select formControlName="type">
+            <option value="">Type</option>
+            <option value="Type 1">Type 1</option>
+            <option value="Type 2">Type 2</option>
+            <option value="Type 3">Type 3</option>
+        </select>
+        <input 
+            type="text" 
+            formControlName="benefitAmount"
+            placeholder="Benefit amount"
+        >
+        <hr>
+        <div>
+            <input
+                type="date"
+                formControlName="startDate"
+                placeholder="Start date"
+            />
+            <input
+                type="date"
+                formControlName="finishDate"
+                placeholder="Finish date"
+            />
+        </div>
+        <div>
+            <input 
+                type="radio" 
+                id="bussiness"
+                formControlName="pricing" 
+                value="bussiness" 
+            >
+            <label for="bussiness">Bussiness conditions</label>
+            <input 
+                type="radio" 
+                id="base"
+                formControlName="pricing" 
+                value="base" 
+            >
+            <label for="base">Base price 100%</label>
+        </div>
+        <div>
+            <input 
+                type="checkbox"
+                formControlName="combinePromotions"
+            >
+            <label for="combinePromotions">Connect with other promotions</label>
+        </div>
+        <div>
+            <input 
+                type="checkbox"
+                formControlName="backPromotion"
+            >
+            <label for="backPromotion">Back promotion</label>
+        </div>
+    </section> 
+</section>
