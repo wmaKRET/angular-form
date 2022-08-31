@@ -1,5 +1,9 @@
 <div class="container">
-    <app-add-edit-menu>
-        
+    <app-add-edit-menu
+        [formSectionsArray]="formSectionsArray"
+        [activeSectionId]="activeSectionId"
+        (changeActiveSectionEvent)="changeActiveSection($event)"
+    >
     </app-add-edit-menu>
+    <h1>form goes here</h1>
 </div>

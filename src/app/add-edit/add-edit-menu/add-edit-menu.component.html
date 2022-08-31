@@ -1,1 +1,17 @@
-<p>add-edit-menu works!</p>
+<div class="menu">
+    <div 
+        *ngFor="let section of formSectionsArray"
+        class="menu-item"
+        [ngClass]="{'menu-item-disabled': section.isDisabled, 'menu-item-active': section.id === activeSectionId}"
+        (click)="changeActiveSection(section.id)"
+    >
+        <div class="menu-item__number">{{ section.id }}</div>
+        <p class="menu-item__name">{{ section.name | uppercase }}</p>
+        <div 
+            *ngIf="section.tooltip"
+            class="menu-item__tooltip"
+        >
+            i
+        </div>
+    </div>
+</div>
