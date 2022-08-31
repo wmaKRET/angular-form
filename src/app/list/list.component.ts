@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+
 import { FormService } from '../services/form.service';
+import { FormObj } from '../models/formObj';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
@@ -8,8 +10,15 @@ import { FormService } from '../services/form.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  formsArray!: FormGroup[];
+  formsArray!: FormGroup<any>[];
   constructor(private formService: FormService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getForms();
+    console.log(this.formsArray);
+  }
+
+  getForms(): void {
+    this.formsArray = this.formService.formsArray;
+  }
 }

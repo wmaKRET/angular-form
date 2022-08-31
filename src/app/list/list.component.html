@@ -6,8 +6,8 @@
             <th>Edytuj</th>
             <th>Usuń</th>
         </tr>
-        <tr>
-            <td>testowa</td>
+        <tr *ngFor="let form of formsArray">
+            <td>{{ form | json }}</td>
             <td>
                 <a routerLink="/edit/1">edit</a>
             </td>

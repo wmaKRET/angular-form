@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { FormSection } from '../models/formSection';
 import { FormService } from '../services/form.service';
@@ -13,7 +14,8 @@ import { LocalService } from '../services/local.service';
 export class AddEditComponent implements OnInit {
   constructor(
     private formService: FormService,
-    private localStore: LocalService
+    private localStore: LocalService,
+    private router: Router
   ) {}
 
   formSectionsArray!: FormSection[];
@@ -73,5 +75,12 @@ export class AddEditComponent implements OnInit {
       'wmakret-promotion-form',
       JSON.stringify(formValues)
     );
+  }
+
+  handleFormSubmit(): void {
+    const formValues = this.promotionForm.value;
+    this.formService.addFormToArray(formValues);
+    this.localStore.removeData('wmakret-promotion-form');
+    this.router.navigate(['']);
   }
 }

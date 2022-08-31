@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FormSection } from '../models/formSection';
 import { SECTIONS } from '../sections';
+import { FormObj, FormValues } from '../models/formObj';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormService {
   constructor(private formBuilder: FormBuilder) {}
+
+  formsArray: FormGroup<any>[] = [];
+
+  addFormToArray(newValues: FormGroup<any>) {
+    this.formsArray.push(newValues);
+  }
 
   getFormSections(): Observable<FormSection[]> {
     const sections = of(SECTIONS);

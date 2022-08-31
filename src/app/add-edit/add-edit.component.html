@@ -4,7 +4,11 @@
         [activeSectionId]="activeSectionId"
         (changeActiveSectionEvent)="changeActiveSection($event)"
     ></app-add-edit-menu>
-    <form [formGroup]="promotionForm" (change)="handleFormChange()">
+    <form 
+        [formGroup]="promotionForm" 
+        (change)="handleFormChange()"
+        (submit)="handleFormSubmit()"
+    >
         <app-add-edit-definition
             *ngIf="activeSectionId === 1"
             [promotionForm]="promotionForm"
