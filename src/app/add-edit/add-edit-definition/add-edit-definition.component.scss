@@ -52,6 +52,12 @@ hr {
   margin-bottom: 1em;
   position: relative;
 
+  &-calendar {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+  }
+
   &-mark {
     margin: 0;
     position: absolute;
