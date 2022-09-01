@@ -2,7 +2,9 @@
     <div 
         *ngFor="let section of formSectionsArray"
         class="menu-item"
-        [ngClass]="{'menu-item-disabled': section.isDisabled, 'menu-item-active': section.id === activeSectionId}"
+        [ngClass]="{
+            'menu-item-disabled': section.isDisabled, 
+            'menu-item-active': section.id === activeSectionId}"
         (click)="changeActiveSection(section.id)"
     >
         <div class="menu-item__number">{{ section.id }}</div>
@@ -12,7 +14,7 @@
             class="menu-item__tooltip"
         >
             i
-            <span class="tooltip__info">{{ section. tooltip }}</span>
+            <span class="tooltip-info">{{ section. tooltip }}</span>
         </div>
     </div>
 </div>

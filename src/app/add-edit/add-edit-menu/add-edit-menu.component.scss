@@ -2,91 +2,94 @@
   display: flex;
   flex-direction: column;
   gap: 0.25em;
-}
 
-.menu-item {
-  margin-right: 0.25em;
-  display: flex;
-  align-items: center;
-  background-color: #eff1f3;
-  color: #808080;
-  cursor: pointer;
-
-  &-disabled {
-    cursor: not-allowed;
-
-    .menu-item__number {
-      color: #a7aaae;
-      background-color: #dee2e7;
-    }
-    .menu-item__name {
-      color: #a7aaae;
-    }
-  }
-
-  &-active {
-    margin-right: 0;
-    padding-right: 0.25em;
-    .menu-item__number {
-      background-color: #991300;
-    }
-    .menu-item__name {
-      color: black;
-    }
-  }
-
-  &__number {
-    width: 52px;
-    height: 52px;
+  &-item {
+    margin-right: 0.25em;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #666666;
-    border-radius: 100%;
-    color: white;
-    font-size: 1.75rem;
-    transform: translateX(-20px);
-  }
+    background-color: var(--background);
+    color: var(--dark-gray);
+    cursor: pointer;
 
-  &__name {
-    margin-left: -1em;
-    flex: 1 1;
-  }
+    &-disabled {
+      cursor: not-allowed;
 
-  &__tooltip {
-    font-family: Georgia;
-    position: relative;
-    width: 12px;
-    height: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    font-size: 0.6rem;
-    border-radius: 100%;
-    margin-right: 0.5em;
-    background-color: #991300;
-    color: white;
-    cursor: help;
+      .menu-item__number {
+        background-color: var(--number-background-disabled);
+        color: var(--gray);
+      }
 
-    & .tooltip__info {
-      z-index: 1;
-      background-color: #991300;
-      padding: 0.5em;
-      width: 150px;
-      position: absolute;
-      visibility: hidden;
-      opacity: 0;
-      top: 0;
-      right: 0;
-      border-radius: 5px;
-      transition: all 0.2s ease-in;
+      .menu-item__name {
+        color: var(--gray);
+      }
     }
 
-    &:hover {
-      .tooltip__info {
-        visibility: visible;
-        opacity: 100%;
+    &-active {
+      margin-right: 0;
+      padding-right: 0.25em;
+
+      .menu-item__number {
+        background-color: var(--red);
+      }
+
+      .menu-item__name {
+        color: var(--black);
+      }
+    }
+
+    &__number {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--number-background);
+      color: var(--white);
+      border-radius: 100%;
+      font-size: 1.75rem;
+      transform: translateX(-20px);
+    }
+
+    &__name {
+      margin-left: -1em;
+      flex: 1 1;
+    }
+
+    &__tooltip {
+      height: 12px;
+      width: 12px;
+      margin-right: 0.5em;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--red);
+      color: var(--white);
+      border-radius: 100%;
+      font-family: Georgia;
+      font-size: 0.6rem;
+      font-weight: 600;
+      cursor: help;
+
+      & .tooltip-info {
+        width: 150px;
+        padding: 0.5em;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        visibility: hidden;
+        opacity: 0;
+        background-color: var(--red);
+        border-radius: 5px;
+        transition: all 0.2s ease-in;
+      }
+
+      &:hover {
+        .tooltip-info {
+          visibility: visible;
+          opacity: 100%;
+        }
       }
     }
   }
