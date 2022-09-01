@@ -44,7 +44,7 @@ export class FormService {
           benefitAmount: [''],
           startDate: ['', [Validators.required, dateNotPastValidator]],
           finishDate: [''],
-          pricing: ['base'],
+          pricing: ['bussiness'],
           combinePromotions: [true],
           backPromotion: [false],
         }),
