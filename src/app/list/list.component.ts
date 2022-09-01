@@ -22,8 +22,10 @@ export class ListComponent implements OnInit {
     this.formsArray = this.formService.formsArray;
   }
 
-  deleteForm(id: number): void {
-    this.formService.deleteFormFromArray(id);
-    this.getForms();
+  deleteForm(name: string, id: number): void {
+    if (confirm(`You're about to delete: ${name}`)) {
+      this.formService.deleteFormFromArray(id);
+      this.getForms();
+    }
   }
 }

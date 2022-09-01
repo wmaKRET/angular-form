@@ -108,19 +108,20 @@
                     placeholder="Start date"
                     onfocus="(this.type='date')"
                 />
-                <span>&#128197;</span>
                 <span class="input-container-mark">*</span>
             </div>
-            <input
-                class="input__text"
-                type="text"
-                formControlName="finishDate"
-                placeholder="Finish date"
-                onfocus="(this.type='date')"
-            />
+            <div [ngClass]="{ 'is-invalid': submitted && getValidator }">
+                <input
+                    class="input__text"
+                    type="text"
+                    formControlName="finishDate"
+                    placeholder="Finish date"
+                    onfocus="(this.type='date')"
+                />
+            </div>
             <div class="tooltip">
                 i
-                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                <span class="tooltip__info">Start Date needs to be at least tomorrow. Finish Date cannot be earlier than Start Date.</span>
             </div>
         </div>
         <div class="pricing">

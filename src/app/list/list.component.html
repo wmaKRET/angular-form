@@ -15,7 +15,7 @@
                 <a routerLink="/edit/{{form.id}}" class="form-edit">&#9997;</a>
             </td>
             <td class="cell">
-                <button class="form-delete" (click)="deleteForm(form.id)">&#10006;</button>
+                <button class="form-delete" (click)="deleteForm(form.name, form.id)">&#10006;</button>
             </td>
         </tr>
     </table>

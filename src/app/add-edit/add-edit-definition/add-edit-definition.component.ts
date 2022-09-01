@@ -31,6 +31,10 @@ export class AddEditDefinitionComponent implements OnInit {
     return this.promotionForm.get('conditions.startDate');
   }
 
+  get getValidator() {
+    return this.promotionForm.validator;
+  }
+
   enableOtherSections(): void {
     const markName = this.promotionForm.value.description.marketingName;
     const techName = this.promotionForm.value.description.technicalName;

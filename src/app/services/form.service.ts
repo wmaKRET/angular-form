@@ -4,9 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FormSection } from '../models/formSection';
 import { SECTIONS } from '../sections';
-import { FormObj, FormValues } from '../models/formObj';
+import { FormObj } from '../models/formObj';
 import { LocalService } from './local.service';
-import { ThisReceiver } from '@angular/compiler';
+import { dateNotPastValidator } from '../helpers/date-not-past.validator';
+import { finishNotBeforeValidator } from '../helpers/finish-not-before.validator';
 
 @Injectable({
   providedIn: 'root',
@@ -29,23 +30,28 @@ export class FormService {
   }
 
   createForm() {
-    return this.formBuilder.group({
-      description: this.formBuilder.group({
-        marketingName: ['', Validators.required],
-        technicalName: [''],
-        description: [''],
-      }),
-      conditions: this.formBuilder.group({
-        portal: ['', Validators.required],
-        type: ['', Validators.required],
-        benefitAmount: [''],
-        startDate: ['', Validators.required],
-        finishDate: [''],
-        pricing: ['base'],
-        combinePromotions: [true],
-        backPromotion: [false],
-      }),
-    });
+    return this.formBuilder.group(
+      {
+        description: this.formBuilder.group({
+          marketingName: ['', Validators.required],
+          technicalName: [''],
+          description: [''],
+        }),
+        conditions: this.formBuilder.group({
+          portal: ['', Validators.required],
+          type: ['', Validators.required],
+          benefitAmount: [''],
+          startDate: ['', [Validators.required, dateNotPastValidator]],
+          finishDate: [''],
+          pricing: ['base'],
+          combinePromotions: [true],
+          backPromotion: [false],
+        }),
+      },
+      {
+        validators: finishNotBeforeValidator,
+      }
+    );
   }
 
   addFormToArray(formName: string, formValues: FormGroup<any>) {
