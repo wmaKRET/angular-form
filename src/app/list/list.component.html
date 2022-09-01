@@ -7,7 +7,7 @@
             <th>Usuń</th>
         </tr>
         <tr *ngFor="let form of formsArray">
-            <td>{{ form | json }}</td>
+            <td>{{ form.name }}</td>
             <td>
                 <a routerLink="/edit/1">edit</a>
             </td>

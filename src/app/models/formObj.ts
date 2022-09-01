@@ -24,5 +24,6 @@ export interface FormValues {
 
 export interface FormObj {
   id: number;
+  name: string;
   values: FormGroup<any>;
 }

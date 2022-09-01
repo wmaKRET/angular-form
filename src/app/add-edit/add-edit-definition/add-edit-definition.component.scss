@@ -37,6 +37,7 @@
     position: absolute;
     right: 2px;
     top: 0;
+    font-size: 0.7rem;
   }
 }
 
@@ -48,13 +49,12 @@ hr {
   border-radius: 1px;
 }
 
-input,
-textarea,
-select {
+.input__text {
   width: 100%;
   padding: 1em 0.5em 0.5em 1em;
   font-size: 0.75rem;
   border: none;
+  color: #949494;
 }
 
 select {
@@ -65,7 +65,25 @@ select {
   color: #991300;
 }
 
-.gówno {
+.vertical-line {
   margin: 0.5em 0;
   border: 1px solid white;
+}
+
+.benefit {
+  background-color: #f3f3f3;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3em;
+}
+
+.pricing {
+  display: flex;
+
+  & > label {
+    margin-right: 2em;
+  }
 }

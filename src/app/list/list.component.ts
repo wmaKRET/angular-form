@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  formsArray!: FormGroup<any>[];
+  formsArray!: FormObj[];
   constructor(private formService: FormService) {}
 
   ngOnInit(): void {

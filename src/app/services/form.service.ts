@@ -12,10 +12,14 @@ import { FormObj, FormValues } from '../models/formObj';
 export class FormService {
   constructor(private formBuilder: FormBuilder) {}
 
-  formsArray: FormGroup<any>[] = [];
+  formsArray: FormObj[] = [];
 
-  addFormToArray(newValues: FormGroup<any>) {
-    this.formsArray.push(newValues);
+  addFormToArray(formName: string, formValues: FormGroup<any>) {
+    this.formsArray.push({
+      id: this.formsArray.length,
+      name: formName,
+      values: formValues,
+    });
   }
 
   getFormSections(): Observable<FormSection[]> {

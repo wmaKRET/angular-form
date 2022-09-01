@@ -6,22 +6,25 @@
         </div>
         <hr>
         <div class="input-container">
-            <p class="input-container-mark">*</p>
             <input 
+                class="input__text"
                 type="text" 
                 formControlName="marketingName"
                 placeholder="Marketing name"
                 (input)="enableOtherSections()"
             >
+            <span class="input-container-mark">*</span>
         </div>
         
         <input 
+            class="input__text"
             type="text" 
             formControlName="technicalName"
             placeholder="Technical name"
             (input)="enableOtherSections()"
         >
         <textarea 
+            class="input__text"
             formControlName="description"
             placeholder="Description"
         ></textarea>
@@ -31,44 +34,58 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, placeat sit cumque laboriosam minus incidunt maxime adipisci aut aliquid, perspiciatis assumenda iusto minima tempora sequi. Labore ex nisi fugit ratione.</p>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, placeat sit cumque laboriosam minus incidunt maxime adipisci aut aliquid, perspiciatis assumenda iusto minima tempora sequi. Labore ex nisi fugit ratione.</p>
     </section>
-    <span class="gówno"></span>
+    <span class="vertical-line"></span>
     <section class="section" formGroupName="conditions">
         <div class="section__header">
             <h4>Conditions</h4>
             <p class="required"><span>*</span> is required</p>
         </div>
         <hr>
-        <select formControlName="portal">
-            <option value="">Portal</option>
-            <option value="Portal 1">Portal 1</option>
-            <option value="Portal 2">Portal 2</option>
-            <option value="Portal 3">Portal 3</option>
-        </select>
-        <select formControlName="type">
-            <option value="">Type</option>
-            <option value="Type 1">Type 1</option>
-            <option value="Type 2">Type 2</option>
-            <option value="Type 3">Type 3</option>
-        </select>
+        <div class="input-container">           
+            <select class="input__text" formControlName="portal">
+                <option value="">Portal</option>
+                <option value="Portal 1">Portal 1</option>
+                <option value="Portal 2">Portal 2</option>
+                <option value="Portal 3">Portal 3</option>
+            </select>
+            <span class="input-container-mark">*</span>
+        </div>
+        <div class="input-container">           
+            <select class="input__text" formControlName="type">
+                <option value="">Type</option>
+                <option value="Type 1">Type 1</option>
+                <option value="Type 2">Type 2</option>
+                <option value="Type 3">Type 3</option>
+            </select>
+            <span class="input-container-mark">*</span>
+        </div>
         <input 
+            class="input__text benefit"
             type="text" 
             formControlName="benefitAmount"
             placeholder="Benefit amount"
         >
         <hr>
-        <div>
+        <div class="dates">
+            <div class="input-container">           
+                <input
+                    class="input__text"
+                    type="text"
+                    formControlName="startDate"
+                    placeholder="Start date"
+                    onfocus="(this.type='date')"
+                />
+                <span class="input-container-mark">*</span>
+            </div>
             <input
-                type="date"
-                formControlName="startDate"
-                placeholder="Start date"
-            />
-            <input
-                type="date"
+                class="input__text"
+                type="text"
                 formControlName="finishDate"
                 placeholder="Finish date"
+                onfocus="(this.type='date')"
             />
         </div>
-        <div>
+        <div class="pricing">
             <input 
                 type="radio" 
                 id="bussiness"
@@ -84,19 +101,15 @@
             >
             <label for="base">Base price 100%</label>
         </div>
-        <div>
-            <input 
-                type="checkbox"
-                formControlName="combinePromotions"
-            >
-            <label for="combinePromotions">Connect with other promotions</label>
-        </div>
-        <div>
-            <input 
-                type="checkbox"
-                formControlName="backPromotion"
-            >
-            <label for="backPromotion">Back promotion</label>
-        </div>
+        <label>
+            <input type="checkbox" formControlName="combinePromotions">
+            Connect with other promotions
+        </label>
+            
+            
+        <label>
+            <input type="checkbox" formControlName="backPromotion">
+            Back promotion
+        </label>
     </section> 
 </section>
