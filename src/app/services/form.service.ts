@@ -24,6 +24,7 @@ export class FormService {
 
   formsArray: SingleForm[] = this.getLocalStorage();
 
+  // used to generate sections for Form Menu(add-edit-menu)
   getFormSections(): Observable<FormSection[]> {
     const sections = of(SECTIONS);
     return sections;
@@ -66,8 +67,8 @@ export class FormService {
     );
   }
 
-  getFormToEdit(id: number): FormGroup<any> {
-    const formToEdit = this.formsArray.filter((form) => form.id == id);
+  getFormToEdit(formId: number): FormGroup<any> {
+    const formToEdit = this.formsArray.filter((form) => form.id == formId);
     return formToEdit[0].values;
   }
 
@@ -83,8 +84,8 @@ export class FormService {
     );
   }
 
-  deleteFormFromArray(id: number) {
-    this.formsArray = this.formsArray.filter((form) => form.id !== id);
+  deleteFormFromArray(formId: number) {
+    this.formsArray = this.formsArray.filter((form) => form.id !== formId);
     this.localStore.saveData(
       'wmakret-promotion-forms',
       JSON.stringify(this.formsArray)
