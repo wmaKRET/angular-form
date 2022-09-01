@@ -51,11 +51,22 @@ th {
 .form {
   &-edit {
     font-size: 25px;
-    color: black;
+    color: var(--black);
     text-decoration: none;
+
+    &:hover {
+      color: var(--red);
+    }
   }
 
   &-delete {
+    background-color: transparent;
+    color: var(--black);
+    border: none;
     cursor: pointer;
+
+    &:hover {
+      color: var(--red);
+    }
   }
 }
