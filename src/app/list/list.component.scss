@@ -16,6 +16,7 @@
     background-color: var(--dark-gray);
     color: var(--white);
     border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 var(--black);
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -53,6 +54,7 @@ th {
     font-size: 25px;
     color: var(--black);
     text-decoration: none;
+    transition: all 0.1s ease-in;
 
     &:hover {
       color: var(--red);
@@ -64,6 +66,7 @@ th {
     color: var(--black);
     border: none;
     cursor: pointer;
+    transition: all 0.1s ease-in;
 
     &:hover {
       color: var(--red);
