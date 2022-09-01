@@ -98,8 +98,18 @@ export class AddEditComponent implements OnInit {
   handleFormSubmit(): void {
     const formName = this.promotionForm.value.description.marketingName;
     const formValues = this.promotionForm.value;
-    this.formService.addFormToArray(formName, formValues);
-    this.localStore.removeData('wmakret-promotion-form');
-    this.router.navigate(['']);
+    if (this.isEditMode) {
+      this.formService.updateForm(
+        Number(this.formToEditId),
+        formName,
+        formValues
+      );
+      this.localStore.removeData('wmakret-promotion-form');
+      this.router.navigate(['']);
+    } else {
+      this.formService.addFormToArray(formName, formValues);
+      this.localStore.removeData('wmakret-promotion-form');
+      this.router.navigate(['']);
+    }
   }
 }

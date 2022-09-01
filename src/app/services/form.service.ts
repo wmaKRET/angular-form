@@ -65,6 +65,18 @@ export class FormService {
     return formToEdit[0].values;
   }
 
+  updateForm(formId: number, formName: string, formValues: FormGroup<any>) {
+    this.formsArray = this.formsArray.map((form) =>
+      form.id === formId
+        ? { id: formId, name: formName, values: formValues }
+        : form
+    );
+    this.localStore.saveData(
+      'wmakret-promotion-forms',
+      JSON.stringify(this.formsArray)
+    );
+  }
+
   deleteFormFromArray(id: number) {
     this.formsArray = this.formsArray.filter((form) => form.id !== id);
     this.localStore.saveData(
