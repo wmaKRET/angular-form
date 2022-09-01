@@ -1,6 +1,6 @@
 .summary {
   min-height: 100%;
-  background-color: #eff1f3;
+  background-color: var(--background);
 
   .content {
     width: 90%;
@@ -9,19 +9,18 @@
     display: flex;
     flex-direction: column;
     gap: 0.5em;
-    flex: 1;
 
     & > button {
       padding: 0.5em 1em;
       background-color: white;
-      border: 1px solid #808080;
+      border: 1px solid var(--dark-gray);
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
 
       &:hover {
-        background-color: #991300;
-        color: white;
+        background-color: var(--red);
+        color: var(--white);
       }
     }
   }
