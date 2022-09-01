@@ -92,11 +92,20 @@ select {
 }
 
 .pricing {
+  margin-bottom: 0.5em;
   position: relative;
   display: flex;
 
   & > label {
     margin-right: 2em;
+  }
+}
+
+.checkboxes {
+  margin-bottom: 0.5em;
+
+  & > span {
+    margin-left: -0.5em;
   }
 }
 
