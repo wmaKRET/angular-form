@@ -41,9 +41,13 @@ export class AddEditDefinitionComponent implements OnInit {
   }
 
   enableOtherSections(): void {
-    const markName = this.promotionForm.value.description.marketingName;
-    const techName = this.promotionForm.value.description.technicalName;
-    if (markName || techName) this.enableOtherSectionsEvent.emit(true);
+    const marketingNameValue =
+      this.promotionForm.value.description.marketingName;
+    const technicalNameValue =
+      this.promotionForm.value.description.technicalName;
+
+    if (marketingNameValue || technicalNameValue)
+      this.enableOtherSectionsEvent.emit(true);
     else this.enableOtherSectionsEvent.emit(false);
   }
 }

@@ -1,24 +1,39 @@
+hr {
+  width: 100%;
+  margin-top: 0;
+  color: var(--white);
+  border: 1px solid var(--white);
+  border-radius: 1px;
+}
+
+.vertical-line {
+  margin: 1em 0;
+  border: 1px solid var(--white);
+  border-radius: 1px;
+}
+
 .definition {
   display: flex;
-  background-color: #eff1f3;
   gap: 1em;
+  background-color: var(--background);
 }
 
 .section {
   width: 45%;
-  padding-right: 1em;
   margin: 0 auto;
+  padding-right: 1em;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
 
   &__header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 
     & > p {
       font-size: 0.6rem;
+      color: var(--red);
 
       & > span {
         display: inline-block;
@@ -33,46 +48,34 @@
   position: relative;
 
   &-mark {
-    color: #991300;
     margin: 0;
     position: absolute;
-    right: 2px;
     top: 0;
+    right: 2px;
+    color: var(--red);
     font-size: 0.7rem;
   }
-}
-
-hr {
-  margin-top: 0;
-  width: 100%;
-  color: white;
-  border: 1px solid white;
-  border-radius: 1px;
 }
 
 .input__text {
   width: 100%;
   padding: 1em 0.5em 0.5em 1em;
-  font-size: 0.75rem;
+  color: var(--input-text);
   border: none;
-  color: #949494;
+  font-size: 0.75rem;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
 }
 
 select {
-  background-color: white;
-}
-
-.required {
-  color: #991300;
-}
-
-.vertical-line {
-  margin: 0.5em 0;
-  border: 1px solid white;
+  background-color: var(--white);
 }
 
 .benefit {
-  background-color: #f3f3f3;
+  background-color: var(--benefit-background);
 }
 
 .dates {
@@ -92,50 +95,45 @@ select {
 }
 
 .is-invalid {
-  box-shadow: 0 0 2px 2px #991300;
+  box-shadow: 0 0 2px 2px var(--red);
 }
 
 .tooltip {
-  font-family: Georgia;
-  position: absolute;
-  right: -20px;
-  top: 10px;
   width: 12px;
   height: 12px;
+  margin-right: 0.5em;
+  position: absolute;
+  top: 10px;
+  right: -20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 600;
-  font-size: 0.6rem;
+  background-color: var(--red);
+  color: var(--white);
   border-radius: 100%;
-  margin-right: 0.5em;
-  background-color: #991300;
-  color: white;
+  font-family: Georgia;
+  font-size: 0.6rem;
+  font-weight: 600;
   cursor: help;
 
-  & .tooltip__info {
-    z-index: 1;
-    background-color: #991300;
-    padding: 0.5em;
+  & .tooltip-info {
     width: 150px;
+    padding: 0.5em;
     position: absolute;
-    visibility: hidden;
-    opacity: 0;
+    z-index: 1;
     top: 0;
     right: 0;
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--red);
     border-radius: 5px;
     transition: all 0.2s ease-in;
   }
 
   &:hover {
-    .tooltip__info {
+    .tooltip-info {
       visibility: visible;
       opacity: 100%;
     }
   }
-}
-
-textarea {
-  min-height: 100px;
-  resize: vertical;
 }
