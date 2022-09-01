@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormService } from '../services/form.service';
 import { FormObj } from '../models/formObj';
 import { FormGroup } from '@angular/forms';
+import { LocalService } from '../services/local.service';
 
 @Component({
   selector: 'app-list',
@@ -15,10 +16,14 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getForms();
-    console.log(this.formsArray);
   }
 
   getForms(): void {
     this.formsArray = this.formService.formsArray;
+  }
+
+  deleteForm(id: number): void {
+    this.formService.deleteFormFromArray(id);
+    this.getForms();
   }
 }

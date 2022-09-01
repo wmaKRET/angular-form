@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { FormSection } from '../models/formSection';
 import { FormService } from '../services/form.service';
@@ -15,18 +15,26 @@ export class AddEditComponent implements OnInit {
   constructor(
     private formService: FormService,
     private localStore: LocalService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   formSectionsArray!: FormSection[];
   activeSectionId!: number;
   promotionForm!: FormGroup;
+  isEditMode!: boolean;
+  formToEditId!: number;
 
   ngOnInit(): void {
+    this.formToEditId = this.route.snapshot.params['id'];
+    this.isEditMode = Boolean(this.formToEditId);
+
     this.getFormSections();
     this.getFirstActiveSectionId();
     this.createNewForm();
-    this.populateFormWithValues();
+    if (this.isEditMode) {
+      this.populateValuesToEdit(this.formToEditId);
+    } else this.populateFormFromLocalStorage();
   }
 
   getFormSections(): void {
@@ -43,11 +51,21 @@ export class AddEditComponent implements OnInit {
     this.promotionForm = this.formService.createForm();
   }
 
-  populateFormWithValues(): void {
+  populateFormFromLocalStorage(): void {
     const savedFormValues = this.localStore.getData('wmakret-promotion-form');
     // if some values are saved in local storage then set form values
-    if (savedFormValues)
+    if (savedFormValues) {
       this.promotionForm.setValue(JSON.parse(savedFormValues));
+      const markName = this.promotionForm.value.description.marketingName;
+      const techName = this.promotionForm.value.description.technicalName;
+      if (markName || techName) this.enableOtherSections(true);
+    }
+  }
+
+  populateValuesToEdit(id: number): void {
+    const editedForm = this.formService.getFormToEdit(Number(id));
+    this.promotionForm.setValue(editedForm);
+    this.enableOtherSections(true);
   }
 
   changeActiveSection(id: number): void {

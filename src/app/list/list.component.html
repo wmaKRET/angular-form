@@ -9,9 +9,11 @@
         <tr *ngFor="let form of formsArray">
             <td>{{ form.name }}</td>
             <td>
-                <a routerLink="/edit/1">edit</a>
+                <a routerLink="/edit/{{form.id}}">edit</a>
             </td>
-            <td>x</td>
+            <td>
+                <button class="form-delete" (click)="deleteForm(form.id)">x</button>
+            </td>
         </tr>
     </table>
 </div>
