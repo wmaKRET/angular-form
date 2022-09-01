@@ -5,7 +5,10 @@
             <p class="required"><span>*</span> is required</p>
         </div>
         <hr>
-        <div class="input-container">
+        <div 
+            class="input-container" 
+            [ngClass]="{ 'is-invalid': submitted && getMarketingName?.errors }"
+        >
             <input 
                 class="input__text"
                 type="text" 
@@ -41,18 +44,18 @@
             <p class="required"><span>*</span> is required</p>
         </div>
         <hr>
-        <div class="input-container">           
+        <div class="input-container" [ngClass]="{ 'is-invalid': submitted && getPortal?.errors }">           
             <select class="input__text" formControlName="portal">
-                <option value="">Portal</option>
+                <option value="">Choose Portal</option>
                 <option value="Portal 1">Portal 1</option>
                 <option value="Portal 2">Portal 2</option>
                 <option value="Portal 3">Portal 3</option>
             </select>
             <span class="input-container-mark">*</span>
         </div>
-        <div class="input-container">           
+        <div class="input-container" [ngClass]="{ 'is-invalid': submitted && getType?.errors }">           
             <select class="input__text" formControlName="type">
-                <option value="">Type</option>
+                <option value="">Choose Type</option>
                 <option value="Type 1">Type 1</option>
                 <option value="Type 2">Type 2</option>
                 <option value="Type 3">Type 3</option>
@@ -67,7 +70,7 @@
         >
         <hr>
         <div class="dates">
-            <div class="input-container">           
+            <div class="input-container" [ngClass]="{ 'is-invalid': submitted && getStartDate?.errors }">           
                 <input
                     class="input__text"
                     type="text"

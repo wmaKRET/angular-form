@@ -12,6 +12,7 @@
         <app-add-edit-definition
             *ngIf="activeSectionId === 1"
             [promotionForm]="promotionForm"
+            [submitted]="submitted"
             (enableOtherSectionsEvent)="enableOtherSections($event)"
         ></app-add-edit-definition>
         <app-add-edit-page

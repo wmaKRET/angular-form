@@ -25,6 +25,8 @@
   }
 
   &-active {
+    margin-right: 0;
+    padding-right: 0.25em;
     .menu-item__number {
       background-color: #991300;
     }

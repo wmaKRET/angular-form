@@ -24,6 +24,7 @@ export class AddEditComponent implements OnInit {
   promotionForm!: FormGroup;
   isEditMode!: boolean;
   formToEditId!: number;
+  submitted = false;
 
   ngOnInit(): void {
     this.formToEditId = this.route.snapshot.params['id'];
@@ -96,8 +97,13 @@ export class AddEditComponent implements OnInit {
   }
 
   handleFormSubmit(): void {
+    this.submitted = true;
     const formName = this.promotionForm.value.description.marketingName;
     const formValues = this.promotionForm.value;
+    if (this.promotionForm.invalid) {
+      this.changeActiveSection(1);
+      return;
+    }
     if (this.isEditMode) {
       this.formService.updateForm(
         Number(this.formToEditId),

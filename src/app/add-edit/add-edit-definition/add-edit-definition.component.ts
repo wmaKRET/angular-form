@@ -8,11 +8,28 @@ import { FormGroup } from '@angular/forms';
 })
 export class AddEditDefinitionComponent implements OnInit {
   @Input() promotionForm!: FormGroup;
+  @Input() submitted!: boolean;
   @Output() enableOtherSectionsEvent = new EventEmitter<boolean>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  get getMarketingName() {
+    return this.promotionForm.get('description.marketingName');
+  }
+
+  get getPortal() {
+    return this.promotionForm.get('conditions.portal');
+  }
+
+  get getType() {
+    return this.promotionForm.get('conditions.type');
+  }
+
+  get getStartDate() {
+    return this.promotionForm.get('conditions.startDate');
+  }
 
   enableOtherSections(): void {
     const markName = this.promotionForm.value.description.marketingName;
