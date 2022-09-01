@@ -1,6 +1,6 @@
 <div class="list">
-    <div>
-        <a routerLink="/add" class="list__button">Add Promotion</a>
+    <div class="list__header">
+        <a routerLink="/add" class="list__btn">Add Promotion</a>
         <p *ngIf="formsArray.length === 0">Currently there are no promotions to display</p>
     </div>
     <table *ngIf="formsArray.length > 0">
@@ -12,7 +12,7 @@
         <tr *ngFor="let form of formsArray">
             <td class="name-cell">{{ form.name }}</td>
             <td class="cell">
-                <a routerLink="/edit/{{form.id}}" class="form-edit">&#9997;</a>
+                <a class="form-edit" routerLink="/edit/{{form.id}}" >&#9997;</a>
             </td>
             <td class="cell">
                 <button class="form-delete" (click)="deleteForm(form.name, form.id)">&#10006;</button>

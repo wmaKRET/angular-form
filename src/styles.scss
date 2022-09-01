@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+// VARIABLES
+:root {
+  --red: #991300;
+  --dark-gray: #808080;
+  --background: #eff1f3;
+  --white: #ffffff;
+}
+
+// GLOBAL STYLES
 * {
   box-sizing: border-box;
   font-family: Calibri, sans-serif;

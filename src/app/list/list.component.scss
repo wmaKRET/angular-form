@@ -1,20 +1,20 @@
 .list {
+  width: 80%;
   margin: 1em auto;
   padding: 1em;
-  width: 80%;
-  background-color: #eff1f3;
-  box-shadow: 0 0 5px 2px #808080;
+  background-color: var(--background);
+  box-shadow: 0 0 5px 2px var(--dark-gray);
 
-  & > div {
+  &__header {
     display: flex;
     align-items: center;
     gap: 2em;
   }
 
-  &__button {
+  &__btn {
     padding: 0.5em;
-    background-color: #808080;
-    color: white;
+    background-color: var(--dark-gray);
+    color: var(--white);
     border-radius: 5px;
     font-weight: 600;
     text-decoration: none;
@@ -22,14 +22,14 @@
     transition: all 0.2s ease-in;
 
     &:hover {
-      background-color: #991300;
+      background-color: var(--red);
     }
   }
+}
 
-  & > table {
-    margin-top: 2em;
-    border-spacing: 0.5em 0.5em;
-  }
+table {
+  margin-top: 2em;
+  border-spacing: 0.5em;
 }
 
 th {
@@ -40,12 +40,12 @@ th {
   box-shadow: 3px 3px 3px 0 #808080;
 }
 
-.cell {
-  text-align: center;
-}
-
 .name-cell {
   text-indent: 0.5em;
+}
+
+.cell {
+  text-align: center;
 }
 
 .form {

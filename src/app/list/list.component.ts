@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormService } from '../services/form.service';
 import { SingleForm } from '../models/singleForm';
-import { FormGroup } from '@angular/forms';
-import { LocalService } from '../services/local.service';
 
 @Component({
   selector: 'app-list',
@@ -12,6 +10,7 @@ import { LocalService } from '../services/local.service';
 })
 export class ListComponent implements OnInit {
   formsArray!: SingleForm[];
+
   constructor(private formService: FormService) {}
 
   ngOnInit(): void {
