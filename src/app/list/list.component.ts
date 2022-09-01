@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormService } from '../services/form.service';
-import { FormObj } from '../models/formObj';
+import { SingleForm } from '../models/singleForm';
 import { FormGroup } from '@angular/forms';
 import { LocalService } from '../services/local.service';
 
@@ -11,7 +11,7 @@ import { LocalService } from '../services/local.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  formsArray!: FormObj[];
+  formsArray!: SingleForm[];
   constructor(private formService: FormService) {}
 
   ngOnInit(): void {

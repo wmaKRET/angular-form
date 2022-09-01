@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FormSection } from '../models/formSection';
 import { SECTIONS } from '../sections';
-import { FormObj } from '../models/formObj';
+import { SingleForm } from '../models/singleForm';
 import { LocalService } from './local.service';
 import { dateNotPastValidator } from '../helpers/date-not-past.validator';
 import { finishNotBeforeValidator } from '../helpers/finish-not-before.validator';
@@ -22,7 +22,7 @@ export class FormService {
   getLocalStorage = () =>
     this.localStorageData ? JSON.parse(this.localStorageData) : [];
 
-  formsArray: FormObj[] = this.getLocalStorage();
+  formsArray: SingleForm[] = this.getLocalStorage();
 
   getFormSections(): Observable<FormSection[]> {
     const sections = of(SECTIONS);

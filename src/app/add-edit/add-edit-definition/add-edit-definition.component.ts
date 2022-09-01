@@ -32,6 +32,11 @@ export class AddEditDefinitionComponent implements OnInit {
   }
 
   get getValidator() {
+    const finishDateValue = this.promotionForm.get(
+      'conditions.finishDate'
+    )?.value;
+    // if Finish Date have no value don't run validator
+    if (!finishDateValue) return false;
     return this.promotionForm.validator;
   }
 
