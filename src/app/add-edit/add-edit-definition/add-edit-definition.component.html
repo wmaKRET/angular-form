@@ -17,20 +17,35 @@
                 (input)="enableOtherSections()"
             >
             <span class="input-container-mark">*</span>
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
         </div>
-        
-        <input 
-            class="input__text"
-            type="text" 
-            formControlName="technicalName"
-            placeholder="Technical name"
-            (input)="enableOtherSections()"
-        >
-        <textarea 
-            class="input__text"
-            formControlName="description"
-            placeholder="Description"
-        ></textarea>
+        <div class="input-container">
+            <input 
+                class="input__text"
+                type="text" 
+                formControlName="technicalName"
+                placeholder="Technical name"
+                (input)="enableOtherSections()"
+            >
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
+        </div>
+        <div class="input-container">
+            <textarea 
+                class="input__text"
+                formControlName="description"
+                placeholder="Description"
+            ></textarea>
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
+        </div>
         <p>Catalog promotion tutorial:</p>
         <hr>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, placeat sit cumque laboriosam minus incidunt maxime adipisci aut aliquid, perspiciatis assumenda iusto minima tempora sequi. Labore ex nisi fugit ratione.</p>
@@ -52,6 +67,10 @@
                 <option value="Portal 3">Portal 3</option>
             </select>
             <span class="input-container-mark">*</span>
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
         </div>
         <div class="input-container" [ngClass]="{ 'is-invalid': submitted && getType?.errors }">           
             <select class="input__text" formControlName="type">
@@ -61,13 +80,23 @@
                 <option value="Type 3">Type 3</option>
             </select>
             <span class="input-container-mark">*</span>
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
         </div>
-        <input 
-            class="input__text benefit"
-            type="text" 
-            formControlName="benefitAmount"
-            placeholder="Benefit amount"
-        >
+        <div class="input-container">
+            <input 
+                class="input__text benefit"
+                type="text" 
+                formControlName="benefitAmount"
+                placeholder="Benefit amount"
+            >
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
+        </div>
         <hr>
         <div class="dates">
             <div class="input-container" [ngClass]="{ 'is-invalid': submitted && getStartDate?.errors }">           
@@ -87,6 +116,10 @@
                 placeholder="Finish date"
                 onfocus="(this.type='date')"
             />
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
         </div>
         <div class="pricing">
             <input 
@@ -103,16 +136,30 @@
                 value="base" 
             >
             <label for="base">Base price 100%</label>
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
         </div>
-        <label>
-            <input type="checkbox" formControlName="combinePromotions">
-            Connect with other promotions
-        </label>
-            
-            
-        <label>
-            <input type="checkbox" formControlName="backPromotion">
-            Back promotion
-        </label>
+        <div class="input-container">
+            <label>
+                <input type="checkbox" formControlName="combinePromotions">
+                Connect with other promotions
+            </label>
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
+        </div>
+        <div class="input-container">
+            <label>
+                <input type="checkbox" formControlName="backPromotion">
+                Back promotion
+            </label>
+            <div class="tooltip">
+                i
+                <span class="tooltip__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            </div>
+        </div>                
     </section> 
 </section>
